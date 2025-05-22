@@ -20,8 +20,14 @@ const handler = (req: Request): Response => {
     } else {
         // Handle other routes
         const page = engine.renderPage(layout);
+        const home = Deno.readTextFileSync('./studio/home.html');
+        const designSidebar = Deno.readTextFileSync('./studio/design_sidebar.html');
 
-        return new Response(page, {
+        const renderedPage = home
+            .replace('<!-- #sidebar -->', designSidebar)
+            .replace('<!-- #content -->', page);
+
+        return new Response(renderedPage, {
             status: 200,
             headers: {
                 'Content-Type': 'text/html',

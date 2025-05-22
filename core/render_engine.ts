@@ -4,8 +4,12 @@ export class RenderEngine {
     // Converts attributes & global props into HTML string
     private renderAttributes(node: HTMLElementNode): string {
         const attrs: string[] = [];
+        const hi = 'Hello Shohag Ahmed';
+        const json = JSON.stringify(node).replace(/"/g, '&quot;');
 
         // Global attributes
+        attrs.push(`onclick="select(event)"`); // note the single quotes
+
         for (const key in node) {
             if (['tag', 'attributes', 'children', 'innerHTML'].includes(key)) continue;
 
@@ -38,6 +42,10 @@ export class RenderEngine {
 
     // Renders a single HTML node recursively
     private renderNode(node: HTMLElementNode): string {
+        // Add random Id for selection
+        if (node.id === undefined) {
+            node.id = Math.random().toString(36).substring(2, 15);
+        }
         const tag = node.tag;
         const attrs = this.renderAttributes(node);
         const attrString = attrs ? ` ${attrs}` : '';

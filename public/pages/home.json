@@ -1,91 +1,19 @@
 {
-    "tag": "html",
+    "tag": "header",
     "children": [
+        { "tag": "h1", "innerHTML": "Welcome!", "class": "clickable" },
         {
-            "tag": "head",
-            "children": [
-                { "tag": "title", "innerHTML": "My Page" },
-                { "tag": "meta", "attributes": { "charset": "UTF-8" } }
-            ]
-        },
-        {
-            "tag": "body",
-            "attributes": { "style": "margin:0; font-family:sans-serif; padding: 20px;" },
+            "tag": "nav",
             "children": [
                 {
-                    "tag": "header",
-                    "children": [
-                        { "tag": "h1", "innerHTML": "Welcome!" },
-                        {
-                            "tag": "nav",
-                            "children": [
-                                { "tag": "a", "attributes": { "href": "/" }, "innerHTML": "Home" },
-                                {
-                                    "tag": "a",
-                                    "attributes": { "href": "/about" },
-                                    "innerHTML": "About"
-                                }
-                            ]
-                        }
-                    ]
+                    "tag": "a",
+                    "attributes": { "href": "/" },
+                    "innerHTML": "Home"
                 },
                 {
-                    "tag": "section",
-                    "children": [
-                        {
-                            "tag": "p",
-                            "innerHTML": "This is a paragraph with <strong>bold</strong> text."
-                        },
-                        {
-                            "tag": "button",
-                            "events": { "onClick": "alert(\"Clicked!\")" },
-                            "innerHTML": "Click Me"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "tag": "head",
-            "children": [
-                { "tag": "title", "innerHTML": "My Page" },
-                { "tag": "meta", "attributes": { "charset": "UTF-8" } }
-            ]
-        },
-        {
-            "tag": "body",
-            "attributes": { "style": "margin:0; font-family:sans-serif; padding: 20px;" },
-            "children": [
-                {
-                    "tag": "header",
-                    "children": [
-                        { "tag": "h1", "innerHTML": "Welcome!" },
-                        {
-                            "tag": "nav",
-                            "children": [
-                                { "tag": "a", "attributes": { "href": "/" }, "innerHTML": "Home" },
-                                {
-                                    "tag": "a",
-                                    "attributes": { "href": "/about" },
-                                    "innerHTML": "About"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "tag": "section",
-                    "children": [
-                        {
-                            "tag": "p",
-                            "innerHTML": "This is a paragraph with <strong>bold</strong> text."
-                        },
-                        {
-                            "tag": "button",
-                            "events": { "onClick": "alert(\"Clicked!\")" },
-                            "innerHTML": "Click Me"
-                        }
-                    ]
+                    "tag": "a",
+                    "attributes": { "href": "/about" },
+                    "innerHTML": "About"
                 }
             ]
         }
