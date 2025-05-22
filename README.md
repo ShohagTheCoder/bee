@@ -13,7 +13,7 @@ Bee CMS is a lightweight, flexible content management system designed for simpli
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/bee-cms.git
+    git clone https://github.com/ShohagTheCoder/bee.git
     ```
 2. **Install dependencies:**
     ```bash
