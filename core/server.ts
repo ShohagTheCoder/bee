@@ -8,6 +8,9 @@ const handler = async (req: Request): Promise<Response> => {
     console.log(`Request for ${path}`);
 
     if (path == 'save') {
+        // return new Response('Hello, world!', {
+        //     status: 404,
+        // });
         const data = await req.json();
         console.log('Received data:', data);
         // Save data to a file or database

@@ -12,6 +12,8 @@ let selectedItem = null;
 let parentTreeKey = '';
 let lastKey = null;
 
+const studio_save_button = document.getElementById('studio-save-button');
+
 function setActiveItem(e) {
     e.preventDefault(); // Prevent default action if needed
     // console.log('Event:', e); // the click event
@@ -56,11 +58,29 @@ function save_the_edite() {
         body: JSON.stringify(layout),
     })
         .then((data) => {
+            if (!data.ok) {
+                throw new Error('Network response was not ok');
+            }
             console.log('Success:', data);
+            studio_save_button.innerHTML = 'Saved &check;';
+            studio_save_button.style.backgroundColor = '#4CAF50'; // Green
+
+            setTimeout(() => {
+                studio_save_button.innerText = 'Save';
+                studio_save_button.style.backgroundColor = '#007bff'; // Blue
+            }, 2000);
             // Handle success
         })
         .catch((error) => {
             console.error('Error:', error);
+
+            studio_save_button.innerHTML = 'Failed &#10006;';
+            studio_save_button.style.backgroundColor = '#b40606'; // Green
+
+            setTimeout(() => {
+                studio_save_button.innerText = 'Save';
+                studio_save_button.style.backgroundColor = '#007bff'; // Blue
+            }, 2000);
             // Handle error
         });
     //code
@@ -151,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('input', updateText);
     });
 
-    const studio_save_button = document.getElementById('studio-save-button');
     studio_save_button.addEventListener('click', save_the_edite);
 
     // Padding section
