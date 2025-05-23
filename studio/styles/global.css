@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(26, 26, 26);
+    color: white;
+}
+
+p,
+button,
+div,
+a,
+span {
+    cursor: pointer;
+}
+
+/* h1:hover,
+            button:hover,
+            a:hover,
+            div:hover {
+                border: 1px dotted #515151;
+            } */
+
+.clicked {
+    outline: 1px dashed #8988e3;
+}
+
+a {
+    color: white;
+}
+
+/* Studio tab styles section */
+.tabs-buttons {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 10px;
+}
+
+.tabs-buttons button {
+    width: 33.33%;
+    padding: 6px;
+    border: none;
+    background-color: #4b4b4b;
+    color: white;
+    cursor: pointer;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+.tabs-buttons button:hover {
+    background-color: #05771b;
+}
+
+.tabs-buttons button.active {
+    background-color: #05771b;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}

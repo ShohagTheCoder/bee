@@ -5,38 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home</title>
 
-        <style>
-            body {
-                background-color: rgb(26, 26, 26);
-                color: white;
-            }
-
-            p,
-            button,
-            div,
-            a,
-            span {
-                cursor: pointer;
-            }
-
-            /* h1:hover,
-            button:hover,
-            a:hover,
-            div:hover {
-                border: 1px dotted #515151;
-            } */
-
-            .clicked {
-                outline: 2px dashed #069a06;
-            }
-
-            a {
-                color: white;
-            }
-        </style>
+        <link rel="stylesheet" href="/@studio_styles/global.css" />
     </head>
     <body>
-        <!-- #sidebar -->
+        <div id="studio-container">
+            <!-- #sidebar -->
+        </div>
         <div style="padding-left: 300px">
             <!-- #content -->
         </div>
@@ -55,7 +29,8 @@
             }
 
             document.querySelectorAll('.clickable').forEach((el) => {
-                el.addEventListener('click', () => {
+                el.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent event bubbling
                     console.log('Clicked:', el); // the clicked element
                     // Optional: remove from all first if you want single selection
                     document
@@ -73,5 +48,6 @@
                 document.getElementById(selectedItem.id).innerText = text;
             }
         </script>
+        <script src="@studio_scripts/app.js" defer type="module"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 {
     "tag": "header",
     "children": [
-        { "tag": "h1", "innerHTML": "Welcome!", "class": "clickable" },
+        { "tag": "h1", "innerHTML": "Welcome!" },
         {
             "tag": "nav",
             "children": [

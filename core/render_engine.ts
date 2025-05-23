@@ -42,10 +42,17 @@ export class RenderEngine {
 
     // Renders a single HTML node recursively
     private renderNode(node: HTMLElementNode): string {
+        const randomId = Math.random().toString(36).substring(2, 15);
         // Add random Id for selection
         if (node.id === undefined) {
-            node.id = Math.random().toString(36).substring(2, 15);
+            node.id = randomId;
         }
+        if (node.class == undefined) {
+            node.class = '';
+        }
+        node.class += ` ${randomId} clickable`;
+        // Default class for clickable elements
+
         const tag = node.tag;
         const attrs = this.renderAttributes(node);
         const attrString = attrs ? ` ${attrs}` : '';

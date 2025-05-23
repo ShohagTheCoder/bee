@@ -171,9 +171,41 @@
         <h2>Editor</h2>
         <button class="close-button" onclick="/* toggleSidebar() */">X</button>
     </div>
-    <div class="sidebar-content">
-        <p id="selected_item">Not selected</p>
-        <input id="text_content_input" type="text" placeholder="Text Content" />
+    <!-- <div class="sidebar-content" id="studio-sidebar-content">
+        <div class="tabs-buttons">
+            <button data-tab="data-tab">Data</button>
+            <button data-tab="design-tab">Design</button>
+            <button data-tab="settings-tab">Settings</button>
+        </div>
+    </div> -->
+    <div class="sidebar-content" id="studio-sidebar-content">
+        <div class="tabs-buttons">
+            <button class="active" data-tab="data-tab">Data</button>
+            <button data-tab="design-tab">Design</button>
+            <button data-tab="settings-tab">Settings</button>
+        </div>
+        <div id="tabs-container">
+            <div id="settings-tab" class="tab-content">
+                <h2>Settings Studio</h2>
+                <p>
+                    Welcome to the Settings Studio! Here you can customize your application
+                    settings.
+                </p>
+                <div id="settings-area" class="settings-area">Your settings will appear here.</div>
+            </div>
+            <div id="data-tab" class="active tab-content">
+                <h2>Data Studio</h2>
+                <p>Welcome to the Data Studio! Here you can manage and visualize your data.</p>
+                <div id="data-area" class="data-area">Your data will appear here.</div>
+                <p id="selected_item">Not selected</p>
+                <input id="text_content_input" type="text" placeholder="Text Content" />
+            </div>
+            <div id="design-tab" class="tab-content">
+                <h2>Design Studio</h2>
+                <p>Welcome to the Design Studio! Here you can create and customize your designs.</p>
+                <div id="design-area" class="design-area">Your design will appear here.</div>
+            </div>
+        </div>
     </div>
 
     <div class="bottom-panel">
