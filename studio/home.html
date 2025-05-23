@@ -6,6 +6,7 @@
         <title>Home</title>
 
         <link rel="stylesheet" href="/@studio_styles/global.css" />
+        <!-- #data -->
     </head>
     <body>
         <div id="studio-container">
@@ -14,40 +15,6 @@
         <div style="padding-left: 300px">
             <!-- #content -->
         </div>
-        <script defer>
-            let selectedItem = null;
-
-            function select(e) {
-                e.preventDefault(); // Prevent default action if needed
-                // console.log('Event:', e); // the click event
-                // console.log('Target:', e.target); // the clicked element
-
-                selectedItem = e.target;
-
-                document.getElementById('selected_item').innerText = e.target.tagName;
-                document.getElementById('text_content_input').value = e.target.innerText;
-            }
-
-            document.querySelectorAll('.clickable').forEach((el) => {
-                el.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevent event bubbling
-                    console.log('Clicked:', el); // the clicked element
-                    // Optional: remove from all first if you want single selection
-                    document
-                        .querySelectorAll('.clickable')
-                        .forEach((e) => e.classList.remove('clicked'));
-                    el.classList.add('clicked');
-                });
-            });
-
-            function save_the_edite() {
-                console.log('Saving...'); // Save the changes
-                //code
-                const text = document.getElementById('text_content_input').value;
-                console.log('Text:', text); // the text content
-                document.getElementById(selectedItem.id).innerText = text;
-            }
-        </script>
         <script src="@studio_scripts/app.js" defer type="module"></script>
     </body>
 </html>

@@ -100,3 +100,13 @@ export interface HTMLElementNode extends GlobalAttributes {
     children?: HTMLElementNode[]; // nested elements
     innerHTML?: string; // raw HTML string (use with care)
 }
+
+export interface HTMLElementNodeKV extends GlobalAttributes {
+    tag: string;
+    id?: string;
+    class?: string;
+    attributes?: Record<string, string>;
+    innerHTML?: string;
+    children?: Record<string, HTMLElementNodeKV>; // not array!
+    [key: string]: any;
+}

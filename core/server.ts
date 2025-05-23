@@ -1,11 +1,25 @@
 import { RenderEngine } from './render_engine.ts';
-import { HTMLElementNode } from './types/types_element.ts';
+import { HTMLElementNode, HTMLElementNodeKV } from './types/types_element.ts';
 
 const handler = async (req: Request): Promise<Response> => {
     const url = new URL(req.url);
     const path = url.pathname.startsWith('/') ? url.pathname.slice(1) : url.pathname;
 
     console.log(`Request for ${path}`);
+
+    if (path == 'save') {
+        const data = await req.json();
+        console.log('Received data:', data);
+        // Save data to a file or database
+        // For example, save to a JSON file
+        try {
+            await Deno.writeTextFile('./public/pages/home.json', JSON.stringify(data, null, 2));
+            return new Response('Data saved successfully', { status: 200 });
+        } catch (err) {
+            console.error('Error saving data:', err);
+            return new Response('Internal Server Error', { status: 500 });
+        }
+    }
 
     const aliasMap: Record<string, string> = {
         '@styles/': './public/styles/',
@@ -46,7 +60,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Render layout
     try {
         const homePage = await Deno.readTextFile('./public/pages/home.json');
-        const layout: HTMLElementNode = JSON.parse(homePage);
+        const layout: HTMLElementNodeKV = JSON.parse(homePage);
 
         const engine = new RenderEngine();
         const page = engine.renderPage(layout);
@@ -55,7 +69,8 @@ const handler = async (req: Request): Promise<Response> => {
 
         const renderedPage = home
             .replace('<!-- #sidebar -->', designSidebar)
-            .replace('<!-- #content -->', page);
+            .replace('<!-- #content -->', page)
+            .replace('<!-- #data -->', `<script>window.layout = ${homePage};</script>`);
 
         return new Response(renderedPage, {
             status: 200,

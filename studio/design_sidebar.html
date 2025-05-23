@@ -185,25 +185,32 @@
             <button data-tab="settings-tab">Settings</button>
         </div>
         <div id="tabs-container">
+            <div id="data-tab" class="active tab-content">
+                <h2>Data Studio</h2>
+                <p>Welcome to the Data Studio! Here you can manage and visualize your data.</p>
+                <div id="data-area" class="data-area">Your data will appear here.</div>
+                <p id="selected_item">Not selected</p>
+                <input
+                    id="text_content_input"
+                    class="studio-input"
+                    type="text"
+                    placeholder="Text Content"
+                />
+            </div>
+            <div id="design-tab" class="tab-content">
+                <h2>Design Studio</h2>
+                <p>Welcome to the Design Studio! Here you can create and customize your designs.</p>
+                <div id="design-area" class="design-area">Your design will appear here.</div>
+            </div>
             <div id="settings-tab" class="tab-content">
                 <h2>Settings Studio</h2>
                 <p>
                     Welcome to the Settings Studio! Here you can customize your application
                     settings.
                 </p>
-                <div id="settings-area" class="settings-area">Your settings will appear here.</div>
-            </div>
-            <div id="data-tab" class="active tab-content">
-                <h2>Data Studio</h2>
-                <p>Welcome to the Data Studio! Here you can manage and visualize your data.</p>
-                <div id="data-area" class="data-area">Your data will appear here.</div>
-                <p id="selected_item">Not selected</p>
-                <input id="text_content_input" type="text" placeholder="Text Content" />
-            </div>
-            <div id="design-tab" class="tab-content">
-                <h2>Design Studio</h2>
-                <p>Welcome to the Design Studio! Here you can create and customize your designs.</p>
-                <div id="design-area" class="design-area">Your design will appear here.</div>
+                <div id="settings-area" class="settings-area">
+                    <input id="settings-input-padding" type="number" placeholder="Padding" />
+                </div>
             </div>
         </div>
     </div>
@@ -215,6 +222,6 @@
             <div class="action-button">🎚️</div>
             <div class="action-button">⚙️</div>
         </div>
-        <button class="save-button" onclick="save_the_edite()">Save</button>
+        <button class="save-button" id="studio-save-button">Save</button>
     </div>
 </div>
